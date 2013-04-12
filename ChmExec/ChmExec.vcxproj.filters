@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Worker">
+      <UniqueIdentifier>{3a78ef36-49d4-403a-a3ae-9499754976e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkerChm">
+      <UniqueIdentifier>{95f15d38-82a4-4210-ae38-5192625b8fac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Worker\Include">
+      <UniqueIdentifier>{a9c5742a-361b-4b02-a534-d3fa4f45c0fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Worker\Src">
+      <UniqueIdentifier>{125cb5f9-a7a7-4a4a-a96f-13e3b1a52082}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkerChm\Include">
+      <UniqueIdentifier>{78f3d975-1cc0-4f22-a9b4-c367f4d362cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkerChm\Src">
+      <UniqueIdentifier>{3759a3bc-6ba2-41a3-a948-2bfe10734e1d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ChmExec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChmExecDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Worker\Include\WorkerUser.h">
+      <Filter>Worker\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Worker\Src\Helpers.h">
+      <Filter>Worker\Src</Filter>
+    </ClInclude>
+    <ClInclude Include="Worker\Src\LogErrHandler.h">
+      <Filter>Worker\Src</Filter>
+    </ClInclude>
+    <ClInclude Include="Worker\Src\Worker.h">
+      <Filter>Worker\Src</Filter>
+    </ClInclude>
+    <ClInclude Include="Worker\Src\WorkQueue.h">
+      <Filter>Worker\Src</Filter>
+    </ClInclude>
+    <ClInclude Include="Worker\Include\Defs.h">
+      <Filter>Worker\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Worker\Include\User.h">
+      <Filter>Worker\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkerChm\Include\Files.h">
+      <Filter>WorkerChm\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkerChm\Src\Consts.h">
+      <Filter>WorkerChm\Src</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkerChm\Include\WorkerUserChm.h">
+      <Filter>WorkerChm\Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ChmExec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChmExecDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Worker\Src\Helpers.cpp">
+      <Filter>Worker\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Worker\Src\LogErrHandler.cpp">
+      <Filter>Worker\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkerChm\Src\Files.cpp">
+      <Filter>WorkerChm\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkerChm\Src\Consts.cpp">
+      <Filter>WorkerChm\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkerChm\Src\WorkerUserChm.cpp">
+      <Filter>WorkerChm\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="ChmExecDlgUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ChmExec.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\ChmExec.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\ChmExec.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
