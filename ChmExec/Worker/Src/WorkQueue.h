@@ -77,14 +77,14 @@ namespace Worker
 		//получить элемент исполнения. Возращает NULL при отсутствии элементов
 		virtual Item* popitem()
 		{
-			CSingleLock lock( &m_cs );
+			CSingleLock lock( &m_cs , TRUE );
 
 			return cworkqueue::popitem();;
 		}
 		//добавить элемент в очередь 
 		virtual void pushitem( Item* pItem )
 		{
-			CSingleLock lock( &m_cs );
+			CSingleLock lock( &m_cs , TRUE );
 
 			queue::push( pItem );
 
@@ -106,7 +106,7 @@ namespace Worker
 	public:
 		//
 		cworkqueuesafewaitableinput()
-			:m_bEndWaitInput(false)
+			:m_bEndWaitInput( false )
 		{
 			InitializeConditionVariable( &m_cvReadyToPop );
 		};
@@ -126,7 +126,7 @@ namespace Worker
 		//получить элемент исполнения. Возращает NULL при отсутствии элементов
 		virtual Item* popitem()
 		{
-			CSingleLock lock( &m_cs );
+			CSingleLock lock( &m_cs , TRUE );
 
 			while( empty() && !m_bEndWaitInput )
 			{

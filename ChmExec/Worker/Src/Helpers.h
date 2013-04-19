@@ -45,7 +45,7 @@ namespace Worker
 		}
 	private:
 		//освободить элемент
-		static void FreeItem(Item item)
+		static void FreeItem( Item item )
 		{
 			delete item;
 		}
@@ -59,7 +59,7 @@ namespace Worker
 	{
 	public:
 		//
-		CAutoFreeHandles(int nCountHandles )
+		CAutoFreeHandles( int nCountHandles )
 			:vector< HANDLE >( nCountHandles )
 		{
 			if ( size() )

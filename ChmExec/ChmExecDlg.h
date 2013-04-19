@@ -48,7 +48,9 @@ private:
 	{
 	public:
 		//Выполнить задачу 
-		static void ExecThread(const cstring& strResDir, FilesOp::Files& files, HWND hWnd, bool bThreadsOperations );
+		//strResDir - рез. дир., files - набор файлов для обработки, hWnd - окно оповещения о завершении оп.,
+		//bThreadsOperations - выполнить операции асинхронно в нескольких рабочих потоках.
+		static void ExecThread( const cstring& strResDir, FilesOp::Files& files, HWND hWnd, bool bThreadsOperations );
 		//Получение журнала выполнения задачи
 		static cstring GetLogErrs();
 
@@ -80,7 +82,7 @@ private:
 	//
 	virtual BOOL OnInitDialog();
 	//
-	virtual void DoDataExchange(CDataExchange* pDX);	
+	virtual void DoDataExchange( CDataExchange* pDX );	
 	//
 	virtual BOOL ContinueModal();
 	//
@@ -89,19 +91,19 @@ private:
 	virtual void OnOK();
 
 	//заполнение массива files, выбранными файлами chm
-	void GetFiles( FilesOp::Files& files);
+	void GetFiles( FilesOp::Files& files );
 	//
 	void Init();
 	//Добавление chm файла в список
-	void AddChmFileStr(PCTSTR szName );
+	void AddChmFileStr( PCTSTR szName );
 	//общее обновление интерфеса
 	void UpdateDlgNormal();
 	//обновление интерфеса при работе с задачей
 	//bOpenOperation - флаг запуска задачи
-	void UpdateDlgOpeartion(bool bOpenOperation );
+	void UpdateDlgOpeartion( bool bOpenOperation );
 	//обновление интерфеса ini
 	//bSave - флаг сохнанения состояния
-	void UpdateDlgIni(bool bSave );
+	void UpdateDlgIni( bool bSave );
 	//
 	void FreeItems();
 
@@ -118,7 +120,7 @@ private:
 	afx_msg void OnBnClickedButtonChmDel();
 	afx_msg void OnDeleteItem( int nIDCtl, LPDELETEITEMSTRUCT lpDeleteItemStruct );
 	afx_msg void OnDestroy();
-	afx_msg LONG OnMessageEndOperation(UINT wParam, LONG lParam);
+	afx_msg LONG OnMessageEndOperation( UINT wParam, LONG lParam );
 	afx_msg void OnBnClickedButtonAbout();
 
 	DECLARE_MESSAGE_MAP()

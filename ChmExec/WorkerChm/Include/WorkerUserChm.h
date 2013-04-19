@@ -65,7 +65,7 @@ namespace WorkerChmUser
 	{
 	public:
 		//Выполнение операции разбора над элементом item
-		virtual void Do(CItem& item);
+		virtual void Do( CItem& item );
 
 	private:
 		//////////////////////////////////////////////////////////////////////////
@@ -76,7 +76,8 @@ namespace WorkerChmUser
 		public:
 			//item - элемент разбора
 			CParseHtmlPage( CItem& item )
-				:m_item( item ){}
+				:m_item( item )
+			{}
 
 			//выполнение разбора
 			void operator()( cstring strHtmlPage );
@@ -84,7 +85,7 @@ namespace WorkerChmUser
 		private:
 			//Получение относительного пути страницы в конт. chm
 			//Возращает относит путь
-			cstring GetRelationName(cstring strHtmlPage);
+			cstring GetRelationName( cstring strHtmlPage );
 
 			//элемент разбора
 			CItem& m_item;
@@ -98,7 +99,8 @@ namespace WorkerChmUser
 		public:
 			//item - элемент разбора
 			CParseDirectory( CItem& item )
-				:m_item( item ){}
+				:m_item( item )
+			{}
 
 			//выполнение разбора
 			void operator()( cstring strDirectory );
@@ -116,7 +118,7 @@ namespace WorkerChmUser
 	{
 	public:
 		//Выполнение операции сохранения над элементом item
-		virtual void Do(CItem& item);
+		virtual void Do( CItem& item );
 		
 	private:
 		//////////////////////////////////////////////////////////////////////////
@@ -127,7 +129,8 @@ namespace WorkerChmUser
 		public:
 			//file - место хранения
 			CSavePageInfo( cfstream& file )
-				:m_file( file ){}
+				:m_file( file )
+			{}
 
 			////выполнение сохранения
 			void operator()( CHtmlPageInfo info );
@@ -146,8 +149,9 @@ namespace WorkerChmUser
 	public:
 		//filesChm - входные файлы chm
 		//strResDir - результирующая директория
-		CTaskChm(Files& filesChm, const cstring& strResDir )
-			:m_files(filesChm), m_strResDir( strResDir )
+		CTaskChm( Files& filesChm, const cstring& strResDir )
+			:m_files(filesChm), 
+			m_strResDir( strResDir )
 		{}
 
 		//заполнение входной очереди исполнения workQueue
@@ -169,7 +173,8 @@ namespace WorkerChmUser
 			//workQueue - очередь
 			//strResDir - результ. директория
 			CNewItem( queue<CItem*>& workQueue, const cstring& strResDir )
-				:m_workQueue( workQueue ), m_strResDir( strResDir )
+				:m_workQueue( workQueue ), 
+				m_strResDir( strResDir )
 			{}
 
 			//Добавить элемент исполнения strChmName в очередь
@@ -177,7 +182,7 @@ namespace WorkerChmUser
 						
 		private:
 			//очередь заполнения
-			queue<CItem*>& m_workQueue;
+			queue< CItem* >& m_workQueue;
 			//результ. директория
 			const cstring& m_strResDir;
 		};
@@ -198,22 +203,23 @@ namespace WorkerChmUser
 		//strLog - журнал
 		//bThreadsOperationsPerProcessors - флаг запуска операций в отдельных рабочих потоках
 		CWorkerChmFiles( cstring& strLog, bool bThreadsOperationsPerProcessors = false )
-			:m_worker( strLog , bThreadsOperationsPerProcessors ),m_strLog( strLog )
+			:m_worker( strLog , bThreadsOperationsPerProcessors ),
+			m_strLog( strLog )
 		{}
 	
 		//Выполнение задачи над файлами chm - files, рез. дир - strResDir
-		void Execute(Files& files, const cstring& strResDir );
+		void Execute( Files& files, const cstring& strResDir );
 
 	private:
 		//Ведение журнала выполнения
 		void LogStart();
 		void LogEnd();
 
-		void CleanResDir(const cstring& strResDir );
+		void CleanResDir( const cstring& strResDir );
 
 		//журнал
 		cstring& m_strLog;
 		//Исполнитель задачи
-		CWorkerUser<CItem> m_worker;
+		CWorkerUser< CItem > m_worker;
 	};
 }

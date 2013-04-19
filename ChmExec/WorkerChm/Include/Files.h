@@ -36,7 +36,7 @@ namespace FilesOp
 		{}
 
 		//strFileName - имя файла
-		TFile(const cstring& strFileName)
+		TFile( const cstring& strFileName)
 			:m_strName( strFileName )
 		{}
 
@@ -62,20 +62,20 @@ namespace FilesOp
 		void CleanEndBackSlash();
 
 		//Поиск всех файлов и директорий в m_strName
-		void GetAll(Files& allFiles );
+		void GetAll( Files& allFiles );
 		//Поиск всех файлов в m_strName с фильтром filter
-		void GetFiles(Files& files, const cstring& filter );
+		void GetFiles( Files& files, const cstring& filter );
 		//Поиск всех директорий в m_strName
-		void GetDirs(Files& dirs );
+		void GetDirs( Files& dirs );
 
 		//Удаление m_strName
 		bool Delete();
 		//Копирование m_strName 
-		bool Copy(const cstring& strDest );
+		bool Copy( const cstring& strDest );
 		//Переименование m_strName
-		bool Rename(const cstring& strNewName );
+		bool Rename( const cstring& strNewName );
 		//Перемещение m_strName
-		bool Move(const cstring& strPath );
+		bool Move( const cstring& strPath );
 
 		//Проверка наличия файла
 		bool IsFileExsist();
@@ -87,13 +87,13 @@ namespace FilesOp
 		//strPath - выбранная дир.
 		//hParent - окно владелец диалога
 		//strTitle - заголовок диалога
-		static bool SelectFolder(cstring& strPath, HWND hParent, const cstring& strTitle );
+		static bool SelectFolder( cstring& strPath, HWND hParent, const cstring& strTitle );
 
 	private:
 		//реализация поиска файлов
 		void GetFilesImpl( Files& files, const cstring& path, const cstring& filter, bool bIncludeFiles, bool bIncludeDirs );
 		//реализация операций с файлами и дир.
 		//FO_COPY , FO_DELETE, FO_MOVE, FO_RENAME
-		bool ShellOperation(short nOperation, const cstring& strTo );
+		bool ShellOperation( short nOperation, const cstring& strTo );
 	};
 }

@@ -34,8 +34,12 @@ namespace Worker
 		//
 		//strLog - журнал, task - задача
 		//
-		CWorker(cstring& strLog, CTask<Item>& task )
-			:m_errorHandler( strLog ), m_task(task), m_nCountThreadsOperation1(1), m_nCountThreadsOperation2(1) {}
+		CWorker( cstring& strLog, CTask<Item>& task )
+			:m_errorHandler( strLog ), 
+			m_task( task ), 
+			m_nCountThreadsOperation1(1), 
+			m_nCountThreadsOperation2(1) 
+		{}
 
 		//установить число рабочих потоков на операцию 1 и 2
 		void SetCountThreads( int nCountOperation1, int nCountOperation2 );
@@ -68,12 +72,12 @@ namespace Worker
 			//queueItemsInput - входная очередь элементов
 			//queueItemsOutput - выходная очередь элементов
 			//
-			CContext(COperation<Item>& operation, CLogErrHandler& errorHandler, 
+			CContext( COperation<Item>& operation, CLogErrHandler& errorHandler, 
 				cworkqueue<Item>& queueItemsInput, cworkqueue<Item>& queueItemsOutput )
 				:m_operation( operation ), 
-				m_errorHandler(errorHandler), 
-				m_queueItemsInput(queueItemsInput), 
-				m_queueItemsOutput(queueItemsOutput)
+				m_errorHandler( errorHandler ), 
+				m_queueItemsInput( queueItemsInput ), 
+				m_queueItemsOutput( queueItemsOutput )
 			{}
 
 			//операция

@@ -21,7 +21,7 @@ using namespace WorkerChmUser;
 //////////////////////////////////////////////////////////////////////////
 //Получение относительного пути страницы в конт. chm
 //Возращает относит путь
-cstring COperationParse::CParseHtmlPage::GetRelationName(cstring strHtmlPage)
+cstring COperationParse::CParseHtmlPage::GetRelationName( cstring strHtmlPage )
 {
 	cstring strRelationName = TFile( strHtmlPage ).GetShortName();
 
@@ -154,11 +154,11 @@ void COperationParse::Do(CItem& item)
 
 		_stprintf_s
 			( 
-				szBuffDecompile, sizeof(szBuffDecompile) / sizeof( TCHAR ), 
+				szBuffDecompile, sizeof( szBuffDecompile ) / sizeof( TCHAR ), 
 				szFormatCommand, workingDir.m_strName.c_str(), chm.GetShortName().c_str() 
 			);
 
-		STARTUPINFO si = { sizeof(si) };
+		STARTUPINFO si = { sizeof( si ) };
 		PROCESS_INFORMATION pi = {};
 
 		//исполнение команды открытия chm контейнера
@@ -202,7 +202,7 @@ void COperationSave::CSavePageInfo::operator()( CHtmlPageInfo info )
 
 //////////////////////////////////////////////////////////////////////////
 //Выполнение операции сохранения над элементом item
-void COperationSave::Do(CItem& item)
+void COperationSave::Do( CItem& item )
 {
 	TFile res( item.m_strResDir );
 	TFile chm( item.m_strNameChm );
@@ -279,7 +279,7 @@ void CWorkerChmFiles::LogEnd()
 
 //////////////////////////////////////////////////////////////////////////
 
-void CWorkerChmFiles::CleanResDir(const cstring& strResDir )
+void CWorkerChmFiles::CleanResDir( const cstring& strResDir )
 {
 	TFile techDir( strResDir + _T("\\") + szTechDirName );
 
@@ -291,7 +291,7 @@ void CWorkerChmFiles::CleanResDir(const cstring& strResDir )
 
 //////////////////////////////////////////////////////////////////////////
 //Выполнение задачи над файлами chm - files, рез. дир - strResDir
-void CWorkerChmFiles::Execute(Files& files, const cstring& strResDir )
+void CWorkerChmFiles::Execute( Files& files, const cstring& strResDir )
 {
 	LogStart();
 

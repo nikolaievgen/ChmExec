@@ -33,9 +33,9 @@ CChmExecApp theApp;
 BOOL CChmExecApp::InitInstance()
 {
 	INITCOMMONCONTROLSEX InitCtrls;
-	InitCtrls.dwSize = sizeof(InitCtrls);
+	InitCtrls.dwSize = sizeof( InitCtrls );
 	InitCtrls.dwICC = ICC_WIN95_CLASSES;
-	InitCommonControlsEx(&InitCtrls);
+	InitCommonControlsEx( &InitCtrls );
 
 	CWinApp::InitInstance();
 
@@ -43,7 +43,8 @@ BOOL CChmExecApp::InitInstance()
 
 	AfxOleInit();
 
-	SetThreadLocale(LOCALE_USER_DEFAULT);
+	//текущие лок.
+	SetThreadLocale( LOCALE_USER_DEFAULT );
 	_tsetlocale( LC_ALL, _T("") );
 	std::locale::global( std::locale( "" ) );
 
@@ -51,6 +52,7 @@ BOOL CChmExecApp::InitInstance()
 	
 	m_pMainWnd = &dlg;
 	
+	//диалог приложения
 	dlg.DoModal();
 
 	return FALSE;

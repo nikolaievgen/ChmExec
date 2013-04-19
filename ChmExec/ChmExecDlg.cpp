@@ -29,14 +29,14 @@ CCriticalSection CChmExecDlg::CChmExecMediator::m_cs;
 
 //////////////////////////////////////////////////////////////////////////
 
-CChmExecDlg::CChmExecDlg(CWnd* pParent )
-	: CDialog(CChmExecDlg::IDD, pParent)
-	, m_nConfig(N_CONFIG_THREAD_MAIN)
-	, m_strResDir(_T(""))
-	, m_strLogErrs(_T(""))
-	, m_bOperation(false)
+CChmExecDlg::CChmExecDlg( CWnd* pParent )
+	: CDialog( CChmExecDlg::IDD, pParent)
+	, m_nConfig( N_CONFIG_THREAD_MAIN )
+	, m_strResDir( _T("") )
+	, m_strLogErrs( _T("") )
+	, m_bOperation( false )
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	m_hIcon = AfxGetApp()->LoadIcon( IDR_MAINFRAME );
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -97,7 +97,7 @@ void CChmExecDlg::ExecuteThreadMain()
 //////////////////////////////////////////////////////////////////////////
 //запуск на выполнение задачи в рабочем потоке
 //bThreadsOperationsPerProcessors - флаг запуска операций 
-void CChmExecDlg::ExecuteThread(bool bThreadsOperationsPerProcessors )
+void CChmExecDlg::ExecuteThread( bool bThreadsOperationsPerProcessors )
 {
 	Files	files;
 	GetFiles( files );

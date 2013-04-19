@@ -85,7 +85,7 @@ void TFile::GetFilesImpl( Files& files,const cstring& path, const cstring& filte
 
 //////////////////////////////////////////////////////////////////////////
 //Поиск всех файлов и директорий в m_strName
-void TFile::GetAll(Files& files )
+void TFile::GetAll( Files& files )
 {
 	GetFilesImpl( files, IsFileExsist() ? GetParentDir() : m_strName , cstring(), true, true );
 
@@ -94,7 +94,7 @@ void TFile::GetAll(Files& files )
 
 //////////////////////////////////////////////////////////////////////////
 //Поиск всех файлов в m_strName с фильтром filter
-void TFile::GetFiles(Files& files, const cstring& filter )
+void TFile::GetFiles( Files& files, const cstring& filter )
 {
 	GetFilesImpl( files, IsFileExsist() ? GetParentDir() : m_strName, filter , true, false );
 
@@ -103,7 +103,7 @@ void TFile::GetFiles(Files& files, const cstring& filter )
 
 //////////////////////////////////////////////////////////////////////////
 //Поиск всех директорий в m_strName
-void TFile::GetDirs(Files& files  )
+void TFile::GetDirs( Files& files  )
 {
 	GetFilesImpl( files,  IsFileExsist() ? GetParentDir() : m_strName, cstring() , false, true );
 
@@ -133,7 +133,7 @@ bool TFile::IsDirExsist()
 //////////////////////////////////////////////////////////////////////////
 //реализация операций с файлами и дир.
 //FO_COPY , FO_DELETE, FO_MOVE, FO_RENAME
-bool TFile::ShellOperation(short nOperation, const cstring& strTo )
+bool TFile::ShellOperation( short nOperation, const cstring& strTo )
 {
 	//Требования SHFileOperation, чтобы буферы строк оканчивались 2 нулями
 
@@ -153,7 +153,7 @@ bool TFile::ShellOperation(short nOperation, const cstring& strTo )
 	szBufferTo[ nLenBuffTo - 1 ] = 0;
 
 	SHFILEOPSTRUCTW sh = { 0 };
-	ZeroMemory( &sh, sizeof(SHFILEOPSTRUCTW) );
+	ZeroMemory( &sh, sizeof( SHFILEOPSTRUCTW ) );
 	sh.wFunc = nOperation;
 	sh.pFrom = szBuffFrom; 
 	sh.pTo = szBufferTo;
@@ -224,7 +224,7 @@ bool TFile::Move( const cstring& strPath )
 //strPath - выбранная дир.
 //hParent - окно владелец диалога
 //strTitle - заголовок диалога
-bool TFile::SelectFolder(cstring& strPath, HWND hParent, const cstring& strTitle )
+bool TFile::SelectFolder( cstring& strPath, HWND hParent, const cstring& strTitle )
 {
 	bool bRet = FALSE;
 
@@ -250,7 +250,7 @@ bool TFile::SelectFolder(cstring& strPath, HWND hParent, const cstring& strTitle
 
 		LPMALLOC pMalloc = NULL;
 
-		if ( SUCCEEDED( SHGetMalloc(&pMalloc) ) )
+		if ( SUCCEEDED( SHGetMalloc( &pMalloc ) ) )
 		{
 			pMalloc->Free( pidl );
 			pMalloc->Release();

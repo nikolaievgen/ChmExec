@@ -32,11 +32,11 @@ namespace WorkerUser
 		//strLog - журнал, bThreadsOperationsPerProcessors - флаг исполнения операций в разных рабочих потоках
 		//
 		CWorkerUser( cstring& strLog, bool bThreadsOperationsPerProcessors )
-			:m_strLog(strLog), m_bThreadsOperationsPerProcessors(bThreadsOperationsPerProcessors)
+			:m_strLog( strLog ), m_bThreadsOperationsPerProcessors( bThreadsOperationsPerProcessors )
 		{}
 
 		//
-		void operator()(CTask<Item>& task );
+		void operator()( CTask<Item>& task );
 	private:
 		//журнал
 		cstring& m_strLog;
@@ -48,18 +48,16 @@ namespace WorkerUser
 	//////////////////////////////////////////////////////////////////////////
 
 	template<typename Item >
-	void CWorkerUser<Item>::operator()(CTask<Item>& task )
+	void CWorkerUser<Item>::operator()( CTask<Item>& task )
 	{
 		CWorker< Item > worker( m_strLog, task );
 
 		if ( m_bThreadsOperationsPerProcessors )
 		{
 			SYSTEM_INFO siSysInfo = { 0 };
-			GetSystemInfo(&siSysInfo);
+			GetSystemInfo( &siSysInfo );
 
-			int nThreads = siSysInfo.dwNumberOfProcessors > 2 ? siSysInfo.dwNumberOfProcessors / 2 : 1;
-
-			worker.SetCountThreads( nThreads , nThreads );
+			worker.SetCountThreads( siSysInfo.dwNumberOfProcessors , siSysInfo.dwNumberOfProcessors );
 			worker.ExecuteThreads();
 		}
 		else
